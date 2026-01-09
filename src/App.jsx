@@ -41,13 +41,12 @@ function App() {
       }
       setLoader(true);
       const response = await ai.models.generateContent({
-        model: "gemini-2.5-flash",
+        model: "gemini-2.5-flash-lite",
         contents: question,
       });
       let dataString = response.text;
       dataString = dataString.split("* ");
       dataString = dataString.map((item) => item.trim());
-      // console.log(dataString);
       setResult([
         ...result,
         { type: "q", text: question ? question : selectedHistory },
